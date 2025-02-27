@@ -21,8 +21,8 @@ import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import {
-  PaymentTransferCreateParams,
-  PaymentTransferCreateResponse,
+  PaymentTransferSaveParams,
+  PaymentTransferSaveResponse,
   PaymentTransfers,
 } from './resources/payment-transfers';
 import { readEnv } from './internal/utils/env';
@@ -740,7 +740,7 @@ export declare namespace Fiatwebservices {
 
   export {
     PaymentTransfers as PaymentTransfers,
-    type PaymentTransferCreateResponse as PaymentTransferCreateResponse,
-    type PaymentTransferCreateParams as PaymentTransferCreateParams,
+    type PaymentTransferSaveResponse as PaymentTransferSaveResponse,
+    type PaymentTransferSaveParams as PaymentTransferSaveParams,
   };
 }

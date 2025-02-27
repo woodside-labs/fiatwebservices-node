@@ -12,8 +12,8 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/payment-transfers.ts">PaymentTransferCreateResponse</a></code>
+- <code><a href="./src/resources/payment-transfers.ts">PaymentTransferSaveResponse</a></code>
 
 Methods:
 
-- <code title="post /payment-transfers">client.paymentTransfers.<a href="./src/resources/payment-transfers.ts">create</a>({ ...params }) -> PaymentTransferCreateResponse</code>
+- <code title="post /payment-transfers">client.paymentTransfers.<a href="./src/resources/payment-transfers.ts">save</a>({ ...params }) -> PaymentTransferSaveResponse</code>
