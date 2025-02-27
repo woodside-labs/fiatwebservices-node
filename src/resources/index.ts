@@ -2,7 +2,7 @@
 
 export {
   PaymentTransfers,
-  type PaymentTransferCreateResponse,
-  type PaymentTransferCreateParams,
+  type PaymentTransferSaveResponse,
+  type PaymentTransferSaveParams,
 } from './payment-transfers';
 export { type RetrieveResponse } from './top-level';
