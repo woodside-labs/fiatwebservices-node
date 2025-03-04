@@ -1,6 +1,7 @@
 import fs from 'fs';
 import type { ResponseLike } from 'fiatwebservices/internal/to-file';
 import { toFile } from 'fiatwebservices/uploads';
+import { File } from 'node:buffer';
 
 class MyClass {
   name: string = 'foo';
