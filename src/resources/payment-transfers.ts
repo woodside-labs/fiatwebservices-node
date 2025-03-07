@@ -5,7 +5,10 @@ import { APIPromise } from '../api-promise';
 import { RequestOptions } from '../internal/request-options';
 
 export class PaymentTransfers extends APIResource {
-  save(body: PaymentTransferSaveParams, options?: RequestOptions): APIPromise<PaymentTransferSaveResponse> {
+  create(
+    body: PaymentTransferCreateParams,
+    options?: RequestOptions,
+  ): APIPromise<PaymentTransferCreateResponse> {
     return this._client.post('/payment-transfers', { body, ...options });
   }
 }
@@ -13,7 +16,7 @@ export class PaymentTransfers extends APIResource {
 /**
  * The response from the payment transfers endpoint.
  */
-export interface PaymentTransferSaveResponse {
+export interface PaymentTransferCreateResponse {
   id: string;
 
   /**
@@ -26,7 +29,7 @@ export interface PaymentTransferSaveResponse {
   type: 'rtp' | 'sepa';
 }
 
-export interface PaymentTransferSaveParams {
+export interface PaymentTransferCreateParams {
   message: string;
 
   type: string;
@@ -34,7 +37,7 @@ export interface PaymentTransferSaveParams {
 
 export declare namespace PaymentTransfers {
   export {
-    type PaymentTransferSaveResponse as PaymentTransferSaveResponse,
-    type PaymentTransferSaveParams as PaymentTransferSaveParams,
+    type PaymentTransferCreateResponse as PaymentTransferCreateResponse,
+    type PaymentTransferCreateParams as PaymentTransferCreateParams,
   };
 }
