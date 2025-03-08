@@ -7,8 +7,8 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^fiatwebservices$': '<rootDir>/src/index.ts',
-    '^fiatwebservices/(.*)$': '<rootDir>/src/$1',
+    '^@fiatwebservices/sdk$': '<rootDir>/src/index.ts',
+    '^@fiatwebservices/sdk/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',
