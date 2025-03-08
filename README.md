@@ -30,9 +30,9 @@ const client = new Fiatwebservices({
 });
 
 async function main() {
-  const client = await client.retrieve();
+  const paymentTransfer = await client.paymentTransfers.create({ message: '<xml/>', type: 'swift' });
 
-  console.log(client.message);
+  console.log(paymentTransfer.id);
 }
 
 main();
@@ -51,7 +51,10 @@ const client = new Fiatwebservices({
 });
 
 async function main() {
-  const client: Fiatwebservices.RetrieveResponse = await client.retrieve();
+  const params: Fiatwebservices.PaymentTransferCreateParams = { message: '<xml/>', type: 'swift' };
+  const paymentTransfer: Fiatwebservices.PaymentTransferCreateResponse = await client.paymentTransfers.create(
+    params,
+  );
 }
 
 main();
@@ -68,15 +71,17 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const client = await client.retrieve().catch(async (err) => {
-    if (err instanceof Fiatwebservices.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+  const paymentTransfer = await client.paymentTransfers
+    .create({ message: '<xml/>', type: 'swift' })
+    .catch(async (err) => {
+      if (err instanceof Fiatwebservices.APIError) {
+        console.log(err.status); // 400
+        console.log(err.name); // BadRequestError
+        console.log(err.headers); // {server: 'nginx', ...}
+      } else {
+        throw err;
+      }
+    });
 }
 
 main();
@@ -111,7 +116,7 @@ const client = new Fiatwebservices({
 });
 
 // Or, configure per-request:
-await client.retrieve({
+await client.paymentTransfers.create({ message: '<xml/>', type: 'swift' }, {
   maxRetries: 5,
 });
 ```
@@ -128,7 +133,7 @@ const client = new Fiatwebservices({
 });
 
 // Override per-request:
-await client.retrieve({
+await client.paymentTransfers.create({ message: '<xml/>', type: 'swift' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -151,13 +156,15 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Fiatwebservices();
 
-const response = await client.retrieve().asResponse();
+const response = await client.paymentTransfers.create({ message: '<xml/>', type: 'swift' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: client, response: raw } = await client.retrieve().withResponse();
+const { data: paymentTransfer, response: raw } = await client.paymentTransfers
+  .create({ message: '<xml/>', type: 'swift' })
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(client.message);
+console.log(paymentTransfer.id);
 ```
 
 ### Logging

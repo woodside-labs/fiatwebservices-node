@@ -14,25 +14,71 @@ export class PaymentTransfers extends APIResource {
 }
 
 /**
- * The response from the payment transfers endpoint.
+ * The payment transfer object.
  */
 export interface PaymentTransferCreateResponse {
+  /**
+   * The internal ID of the payment transfer.
+   */
   id: string;
 
   /**
    * The date and time when the payment transfer was created
    */
-  creationDate: string;
+  createdAt: string;
 
-  messageId: string;
+  /**
+   * The direction of the payment transfer.
+   */
+  direction: 'debit' | 'credit';
 
-  type: 'rtp' | 'sepa';
+  /**
+   * The initiating party of the payment transfer.
+   */
+  initiatingPartyId: string;
+
+  /**
+   * The internal ID of the organization.
+   */
+  organizationId: string;
+
+  /**
+   * The payment rail type of the transfer.
+   */
+  type: 'swift' | 'sepa';
+
+  /**
+   * The category purpose code of the payment transfer.
+   */
+  categoryPurposeCode?: string | null;
+
+  /**
+   * The date and time when the payment transfer was created
+   */
+  creationDate?: string | null;
+
+  /**
+   * The message ID of the payment transfer. Used to identify the message.
+   */
+  messageId?: string | null;
+
+  /**
+   * The information ID of the payment transfer. Used to identify the entire
+   * transfer.
+   */
+  paymentInformationId?: string | null;
 }
 
 export interface PaymentTransferCreateParams {
+  /**
+   * The XML message of the transfer.
+   */
   message: string;
 
-  type: string;
+  /**
+   * The payment rail type of the transfer.
+   */
+  type: 'swift' | 'sepa';
 }
 
 export declare namespace PaymentTransfers {
