@@ -73,7 +73,7 @@ const parseLogLevel = (
 
 export interface ClientOptions {
   /**
-   * Defaults to process.env['FIATWEBSERVICES_API_KEY'].
+   * Defaults to process.env['FWS_API_KEY'].
    */
   apiKey?: string | null | undefined;
 
@@ -167,7 +167,7 @@ export class Fiatwebservices {
   /**
    * API Client for interfacing with the Fiatwebservices API.
    *
-   * @param {string | null | undefined} [opts.apiKey=process.env['FIATWEBSERVICES_API_KEY'] ?? null]
+   * @param {string | null | undefined} [opts.apiKey=process.env['FWS_API_KEY'] ?? null]
    * @param {string} [opts.baseURL=process.env['FIATWEBSERVICES_BASE_URL'] ?? https://api.example.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
@@ -178,7 +178,7 @@ export class Fiatwebservices {
    */
   constructor({
     baseURL = readEnv('FIATWEBSERVICES_BASE_URL'),
-    apiKey = readEnv('FIATWEBSERVICES_API_KEY') ?? null,
+    apiKey = readEnv('FWS_API_KEY') ?? null,
     ...opts
   }: ClientOptions = {}) {
     const options: ClientOptions = {
