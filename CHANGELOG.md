@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-03-08)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **api:** added openapi mintlify spec ([#8](https://github.com/woodside-labs/fiatwebservices-node/issues/8)) ([6c30a86](https://github.com/woodside-labs/fiatwebservices-node/commit/6c30a860ba63b929c0c072d46022baf8a1bae531))
+
 ## 0.1.0-alpha.1 (2025-03-08)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
