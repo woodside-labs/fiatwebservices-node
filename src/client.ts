@@ -14,8 +14,6 @@ import { VERSION } from './version';
 import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
-import * as TopLevelAPI from './resources/top-level';
-import { RetrieveResponse } from './resources/top-level';
 import { APIPromise } from './api-promise';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -205,10 +203,6 @@ export class Fiatwebservices {
     this._options = options;
 
     this.apiKey = apiKey;
-  }
-
-  retrieve(options?: RequestOptions): APIPromise<TopLevelAPI.RetrieveResponse> {
-    return this.get('/', options);
   }
 
   protected defaultQuery(): Record<string, string | undefined> | undefined {
@@ -737,8 +731,6 @@ export class Fiatwebservices {
 Fiatwebservices.PaymentTransfers = PaymentTransfers;
 export declare namespace Fiatwebservices {
   export type RequestOptions = Opts.RequestOptions;
-
-  export { type RetrieveResponse as RetrieveResponse };
 
   export {
     PaymentTransfers as PaymentTransfers,

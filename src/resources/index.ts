@@ -5,4 +5,3 @@ export {
   type PaymentTransferCreateResponse,
   type PaymentTransferCreateParams,
 } from './payment-transfers';
-export { type RetrieveResponse } from './top-level';

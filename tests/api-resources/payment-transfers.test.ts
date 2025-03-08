@@ -10,7 +10,7 @@ const client = new Fiatwebservices({
 describe('resource paymentTransfers', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: only required params', async () => {
-    const responsePromise = client.paymentTransfers.create({ message: 'message', type: 'type' });
+    const responsePromise = client.paymentTransfers.create({ message: '<xml/>', type: 'swift' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,6 +22,6 @@ describe('resource paymentTransfers', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('create: required and optional params', async () => {
-    const response = await client.paymentTransfers.create({ message: 'message', type: 'type' });
+    const response = await client.paymentTransfers.create({ message: '<xml/>', type: 'swift' });
   });
 });
