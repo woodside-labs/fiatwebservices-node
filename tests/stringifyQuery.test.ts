@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Fiatwebservices } from '@fiatwebservices/sdk';
+import { Fiatwebservices } from 'fiatwebservices';
 
 const { stringifyQuery } = Fiatwebservices.prototype as any;
 
