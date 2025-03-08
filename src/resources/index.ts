@@ -3,5 +3,7 @@
 export {
   PaymentTransfers,
   type PaymentTransferCreateResponse,
+  type PaymentTransferRetrieveResponse,
   type PaymentTransferCreateParams,
 } from './payment-transfers';
+export { Ping, type PingPingResponse } from './ping';
