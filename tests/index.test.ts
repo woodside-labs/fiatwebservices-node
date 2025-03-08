@@ -312,13 +312,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['FIATWEBSERVICES_BASE_URL'] = ''; // empty
       const client = new Fiatwebservices({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.example.com');
+      expect(client.baseURL).toEqual('https://api.fiatwebservices.com');
     });
 
     test('blank env variable', () => {
       process.env['FIATWEBSERVICES_BASE_URL'] = '  '; // blank
       const client = new Fiatwebservices({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.example.com');
+      expect(client.baseURL).toEqual('https://api.fiatwebservices.com');
     });
   });
 
