@@ -1,12 +1,12 @@
 {
-  "name": "fiatwebservices",
-  "version": "0.0.1-alpha.0",
+  "name": "@fiatwebservices/sdk",
+  "version": "0.1.0-alpha.1",
   "description": "The official TypeScript library for the Fiatwebservices API",
   "author": "Fiatwebservices <dev-feedback@fiatwebservices.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:stainless-sdks/fiatwebservices-typescript",
+  "repository": "github:woodside-labs/fiatwebservices-node",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "files": [
@@ -50,8 +50,8 @@
     "synckit": "0.8.8"
   },
   "imports": {
-    "fiatwebservices": ".",
-    "fiatwebservices/*": "./src/*"
+    "@fiatwebservices/sdk": ".",
+    "@fiatwebservices/sdk/*": "./src/*"
   },
   "exports": {
     ".": {

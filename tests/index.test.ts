@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'fiatwebservices/api-promise';
+import { APIPromise } from '@fiatwebservices/sdk/api-promise';
 
 import util from 'node:util';
-import Fiatwebservices from 'fiatwebservices';
-import { APIUserAbortError } from 'fiatwebservices';
+import Fiatwebservices from '@fiatwebservices/sdk';
+import { APIUserAbortError } from '@fiatwebservices/sdk';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {
@@ -312,13 +312,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['FIATWEBSERVICES_BASE_URL'] = ''; // empty
       const client = new Fiatwebservices({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.example.com');
+      expect(client.baseURL).toEqual('https://api.fiatwebservices.com');
     });
 
     test('blank env variable', () => {
       process.env['FIATWEBSERVICES_BASE_URL'] = '  '; // blank
       const client = new Fiatwebservices({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.example.com');
+      expect(client.baseURL).toEqual('https://api.fiatwebservices.com');
     });
   });
 
