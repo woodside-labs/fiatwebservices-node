@@ -21,8 +21,10 @@ import { FinalRequestOptions, RequestOptions } from './internal/request-options'
 import {
   PaymentTransferCreateParams,
   PaymentTransferCreateResponse,
+  PaymentTransferRetrieveResponse,
   PaymentTransfers,
 } from './resources/payment-transfers';
+import { Ping, PingPingResponse } from './resources/ping';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
@@ -727,14 +729,19 @@ export class Fiatwebservices {
   static toFile = Uploads.toFile;
 
   paymentTransfers: API.PaymentTransfers = new API.PaymentTransfers(this);
+  ping: API.Ping = new API.Ping(this);
 }
 Fiatwebservices.PaymentTransfers = PaymentTransfers;
+Fiatwebservices.Ping = Ping;
 export declare namespace Fiatwebservices {
   export type RequestOptions = Opts.RequestOptions;
 
   export {
     PaymentTransfers as PaymentTransfers,
     type PaymentTransferCreateResponse as PaymentTransferCreateResponse,
+    type PaymentTransferRetrieveResponse as PaymentTransferRetrieveResponse,
     type PaymentTransferCreateParams as PaymentTransferCreateParams,
   };
+
+  export { Ping as Ping, type PingPingResponse as PingPingResponse };
 }
