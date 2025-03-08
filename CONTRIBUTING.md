@@ -42,15 +42,15 @@ If you’d like to use the repository from source, you can either install from g
 To install via git:
 
 ```sh
-$ npm install git+ssh://git@github.com:stainless-sdks/fiatwebservices-typescript.git
+$ npm install git+ssh://git@github.com:woodside-labs/fiatwebservices-node.git
 ```
 
 Alternatively, to link a local copy of the repo:
 
 ```sh
 # Clone
-$ git clone https://www.github.com/stainless-sdks/fiatwebservices-typescript
-$ cd fiatwebservices-typescript
+$ git clone https://www.github.com/woodside-labs/fiatwebservices-node
+$ cd fiatwebservices-node
 
 # With yarn
 $ yarn link
