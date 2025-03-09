@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2025-03-09)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Features
+
+* **api:** api update ([#13](https://github.com/woodside-labs/fiatwebservices-node/issues/13)) ([6d4944a](https://github.com/woodside-labs/fiatwebservices-node/commit/6d4944aeba67d9c081f8b27ad6b5b3f16c30932d))
+
 ## 0.1.0-alpha.2 (2025-03-09)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
