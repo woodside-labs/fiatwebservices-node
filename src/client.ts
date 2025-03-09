@@ -14,17 +14,18 @@ import { VERSION } from './version';
 import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
+import * as TopLevelAPI from './resources/top-level';
+import { PingResponse } from './resources/top-level';
 import { APIPromise } from './api-promise';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import {
+  PaymentTransfer,
   PaymentTransferCreateParams,
   PaymentTransferCreateResponse,
   PaymentTransferRetrieveResponse,
-  PaymentTransfers,
-} from './resources/payment-transfers';
-import { Ping, PingPingResponse } from './resources/ping';
+} from './resources/payment-transfer';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
@@ -205,6 +206,10 @@ export class Fiatwebservices {
     this._options = options;
 
     this.apiKey = apiKey;
+  }
+
+  ping(options?: RequestOptions): APIPromise<TopLevelAPI.PingResponse> {
+    return this.get('/ping', options);
   }
 
   protected defaultQuery(): Record<string, string | undefined> | undefined {
@@ -728,20 +733,18 @@ export class Fiatwebservices {
 
   static toFile = Uploads.toFile;
 
-  paymentTransfers: API.PaymentTransfers = new API.PaymentTransfers(this);
-  ping: API.Ping = new API.Ping(this);
+  paymentTransfer: API.PaymentTransfer = new API.PaymentTransfer(this);
 }
-Fiatwebservices.PaymentTransfers = PaymentTransfers;
-Fiatwebservices.Ping = Ping;
+Fiatwebservices.PaymentTransfer = PaymentTransfer;
 export declare namespace Fiatwebservices {
   export type RequestOptions = Opts.RequestOptions;
 
+  export { type PingResponse as PingResponse };
+
   export {
-    PaymentTransfers as PaymentTransfers,
+    PaymentTransfer as PaymentTransfer,
     type PaymentTransferCreateResponse as PaymentTransferCreateResponse,
     type PaymentTransferRetrieveResponse as PaymentTransferRetrieveResponse,
     type PaymentTransferCreateParams as PaymentTransferCreateParams,
   };
-
-  export { Ping as Ping, type PingPingResponse as PingPingResponse };
 }

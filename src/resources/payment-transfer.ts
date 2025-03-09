@@ -5,7 +5,7 @@ import { APIPromise } from '../api-promise';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
-export class PaymentTransfers extends APIResource {
+export class PaymentTransfer extends APIResource {
   create(
     body: PaymentTransferCreateParams,
     options?: RequestOptions,
@@ -371,7 +371,7 @@ export interface PaymentTransferCreateParams {
   type: 'swift' | 'sepa';
 }
 
-export declare namespace PaymentTransfers {
+export declare namespace PaymentTransfer {
   export {
     type PaymentTransferCreateResponse as PaymentTransferCreateResponse,
     type PaymentTransferRetrieveResponse as PaymentTransferRetrieveResponse,

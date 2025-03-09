@@ -1,23 +1,21 @@
 # Fiatwebservices
 
-# PaymentTransfers
-
 Types:
 
-- <code><a href="./src/resources/payment-transfers.ts">PaymentTransferCreateResponse</a></code>
-- <code><a href="./src/resources/payment-transfers.ts">PaymentTransferRetrieveResponse</a></code>
+- <code><a href="./src/resources/top-level.ts">PingResponse</a></code>
 
 Methods:
 
-- <code title="post /payment-transfers">client.paymentTransfers.<a href="./src/resources/payment-transfers.ts">create</a>({ ...params }) -> PaymentTransferCreateResponse</code>
-- <code title="get /payment-transfers/{id}">client.paymentTransfers.<a href="./src/resources/payment-transfers.ts">retrieve</a>(id) -> PaymentTransferRetrieveResponse</code>
+- <code title="get /ping">client.<a href="./src/index.ts">ping</a>() -> PingResponse</code>
 
-# Ping
+# PaymentTransfer
 
 Types:
 
-- <code><a href="./src/resources/ping.ts">PingPingResponse</a></code>
+- <code><a href="./src/resources/payment-transfer.ts">PaymentTransferCreateResponse</a></code>
+- <code><a href="./src/resources/payment-transfer.ts">PaymentTransferRetrieveResponse</a></code>
 
 Methods:
 
-- <code title="get /ping">client.ping.<a href="./src/resources/ping.ts">ping</a>() -> PingPingResponse</code>
+- <code title="post /payment-transfers">client.paymentTransfer.<a href="./src/resources/payment-transfer.ts">create</a>({ ...params }) -> PaymentTransferCreateResponse</code>
+- <code title="get /payment-transfers/{id}">client.paymentTransfer.<a href="./src/resources/payment-transfer.ts">retrieve</a>(id) -> PaymentTransferRetrieveResponse</code>

@@ -7,10 +7,10 @@ const client = new Fiatwebservices({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource ping', () => {
+describe('top level methods', () => {
   // skipped: tests are disabled for the time being
   test.skip('ping', async () => {
-    const responsePromise = client.ping.ping();
+    const responsePromise = client.ping();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
