@@ -4,7 +4,7 @@
 
 This library provides convenient access to the Fiatwebservices REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found on [docs.fiatwebservices.com](https://docs.fiatwebservices.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.iso20022js.com](https://docs.iso20022js.com). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -27,9 +27,9 @@ const client = new Fiatwebservices({
 });
 
 async function main() {
-  const paymentTransfer = await client.paymentTransfers.create({ message: '<xml/>', type: 'swift' });
+  const response = await client.ping();
 
-  console.log(paymentTransfer.id);
+  console.log(response.message);
 }
 
 main();
@@ -48,10 +48,7 @@ const client = new Fiatwebservices({
 });
 
 async function main() {
-  const params: Fiatwebservices.PaymentTransferCreateParams = { message: '<xml/>', type: 'swift' };
-  const paymentTransfer: Fiatwebservices.PaymentTransferCreateResponse = await client.paymentTransfers.create(
-    params,
-  );
+  const response: Fiatwebservices.PingResponse = await client.ping();
 }
 
 main();
@@ -68,17 +65,15 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const paymentTransfer = await client.paymentTransfers
-    .create({ message: '<xml/>', type: 'swift' })
-    .catch(async (err) => {
-      if (err instanceof Fiatwebservices.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
+  const response = await client.ping().catch(async (err) => {
+    if (err instanceof Fiatwebservices.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 }
 
 main();
@@ -113,7 +108,7 @@ const client = new Fiatwebservices({
 });
 
 // Or, configure per-request:
-await client.paymentTransfers.create({ message: '<xml/>', type: 'swift' }, {
+await client.ping({
   maxRetries: 5,
 });
 ```
@@ -130,7 +125,7 @@ const client = new Fiatwebservices({
 });
 
 // Override per-request:
-await client.paymentTransfers.create({ message: '<xml/>', type: 'swift' }, {
+await client.ping({
   timeout: 5 * 1000,
 });
 ```
@@ -153,15 +148,13 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Fiatwebservices();
 
-const response = await client.paymentTransfers.create({ message: '<xml/>', type: 'swift' }).asResponse();
+const response = await client.ping().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: paymentTransfer, response: raw } = await client.paymentTransfers
-  .create({ message: '<xml/>', type: 'swift' })
-  .withResponse();
+const { data: response, response: raw } = await client.ping().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(paymentTransfer.id);
+console.log(response.message);
 ```
 
 ### Logging

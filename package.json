@@ -2,7 +2,7 @@
   "name": "@fiatwebservices/sdk",
   "version": "0.1.0-alpha.2",
   "description": "The official TypeScript library for the Fiatwebservices API",
-  "author": "Fiatwebservices <dev-feedback@fiatwebservices.com>",
+  "author": "Fiatwebservices <svapnil@woodside.sh>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",

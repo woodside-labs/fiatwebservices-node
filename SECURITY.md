@@ -20,7 +20,7 @@ or products provided by Fiatwebservices please follow the respective company's s
 
 ### Fiatwebservices Terms and Policies
 
-Please contact dev-feedback@fiatwebservices.com for any questions or concerns regarding security of our services.
+Please contact svapnil@woodside.sh for any questions or concerns regarding security of our services.
 
 ---
 
