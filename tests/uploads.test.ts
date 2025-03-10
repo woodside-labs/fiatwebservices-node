@@ -1,6 +1,6 @@
 import fs from 'fs';
-import type { ResponseLike } from 'fiatwebservices/internal/to-file';
-import { toFile } from 'fiatwebservices/uploads';
+import type { ResponseLike } from '@fiatwebservices/sdk/internal/to-file';
+import { toFile } from '@fiatwebservices/sdk/uploads';
 import { File } from 'node:buffer';
 
 class MyClass {
@@ -97,7 +97,7 @@ describe('missing File error message', () => {
   });
 
   test('is thrown', async () => {
-    const uploads = await import('fiatwebservices/uploads');
+    const uploads = await import('@fiatwebservices/sdk/uploads');
     await expect(
       uploads.toFile(mockResponse({ url: 'https://example.com/my/audio.mp3' })),
     ).rejects.toMatchInlineSnapshot(
