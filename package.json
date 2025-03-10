@@ -1,5 +1,5 @@
 {
-  "name": "@fiatwebservices/sdk",
+  "name": "fiatwebservices",
   "version": "0.1.0-alpha.5",
   "description": "The official TypeScript library for the Fiatwebservices API",
   "author": "Fiatwebservices <svapnil@woodside.sh>",
@@ -50,8 +50,8 @@
     "synckit": "0.8.8"
   },
   "imports": {
-    "@fiatwebservices/sdk": ".",
-    "@fiatwebservices/sdk/*": "./src/*"
+    "fiatwebservices": ".",
+    "fiatwebservices/*": "./src/*"
   },
   "exports": {
     ".": {
