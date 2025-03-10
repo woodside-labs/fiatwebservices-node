@@ -23,7 +23,7 @@ import { FinalRequestOptions, RequestOptions } from './internal/request-options'
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
-import { Transfer, TransferRetrieveResponse } from './resources/transfer/transfer';
+import { Transfer } from './resources/transfer/transfer';
 
 const safeJSON = (text: string) => {
   try {
@@ -736,5 +736,5 @@ export declare namespace Fiatwebservices {
 
   export { type PingResponse as PingResponse };
 
-  export { Transfer as Transfer, type TransferRetrieveResponse as TransferRetrieveResponse };
+  export { Transfer as Transfer };
 }
