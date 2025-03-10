@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "@fiatwebservices/sdk/*": ["dist/src/*"],
-      "@fiatwebservices/sdk": ["dist/src/index.ts"],
+      "fiatwebservices/*": ["dist/src/*"],
+      "fiatwebservices": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,
