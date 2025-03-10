@@ -20,15 +20,10 @@ import { APIPromise } from './api-promise';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
-import {
-  PaymentTransfer,
-  PaymentTransferCreateParams,
-  PaymentTransferCreateResponse,
-  PaymentTransferRetrieveResponse,
-} from './resources/payment-transfer';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
+import { Transfer } from './resources/transfer/transfer';
 
 const safeJSON = (text: string) => {
   try {
@@ -733,18 +728,13 @@ export class Fiatwebservices {
 
   static toFile = Uploads.toFile;
 
-  paymentTransfer: API.PaymentTransfer = new API.PaymentTransfer(this);
+  transfer: API.Transfer = new API.Transfer(this);
 }
-Fiatwebservices.PaymentTransfer = PaymentTransfer;
+Fiatwebservices.Transfer = Transfer;
 export declare namespace Fiatwebservices {
   export type RequestOptions = Opts.RequestOptions;
 
   export { type PingResponse as PingResponse };
 
-  export {
-    PaymentTransfer as PaymentTransfer,
-    type PaymentTransferCreateResponse as PaymentTransferCreateResponse,
-    type PaymentTransferRetrieveResponse as PaymentTransferRetrieveResponse,
-    type PaymentTransferCreateParams as PaymentTransferCreateParams,
-  };
+  export { Transfer as Transfer };
 }

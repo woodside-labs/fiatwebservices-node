@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from 'fiatwebservices/internal/uploads';
-import { toFile } from 'fiatwebservices/uploads';
+import { multipartFormRequestOptions, createForm } from '@fiatwebservices/sdk/internal/uploads';
+import { toFile } from '@fiatwebservices/sdk/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {
