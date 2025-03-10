@@ -55,12 +55,12 @@ $ cd fiatwebservices-node
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link @fiatwebservices/sdk
+$ yarn link fiatwebservices
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global @fiatwebservices/sdk
+$ pnpm link -—global fiatwebservices
 ```
 
 ## Running tests
