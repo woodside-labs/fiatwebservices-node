@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'fiatwebservices/api-promise';
+import { APIPromise } from '@fiatwebservices/sdk/api-promise';
 
 import util from 'node:util';
-import Fiatwebservices from 'fiatwebservices';
-import { APIUserAbortError } from 'fiatwebservices';
+import Fiatwebservices from '@fiatwebservices/sdk';
+import { APIUserAbortError } from '@fiatwebservices/sdk';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {
