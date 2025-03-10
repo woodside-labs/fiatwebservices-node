@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.6 (2025-03-10)
+
+Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
+
+### Features
+
+* **api:** api update ([#25](https://github.com/woodside-labs/fiatwebservices-node/issues/25)) ([db87367](https://github.com/woodside-labs/fiatwebservices-node/commit/db8736743df032cc82c7e33400b7e576730d3e70))
+* **api:** api update ([#26](https://github.com/woodside-labs/fiatwebservices-node/issues/26)) ([791c6e3](https://github.com/woodside-labs/fiatwebservices-node/commit/791c6e3c428b070378c1db682390cd808dae2871))
+* **api:** api update ([#27](https://github.com/woodside-labs/fiatwebservices-node/issues/27)) ([c31ffce](https://github.com/woodside-labs/fiatwebservices-node/commit/c31ffce956982689250f8f4da6254942453981f2))
+* **api:** api update ([#28](https://github.com/woodside-labs/fiatwebservices-node/issues/28)) ([ec366ac](https://github.com/woodside-labs/fiatwebservices-node/commit/ec366ac089ef0565ac2be0f2c4f9c2cbbcb169b3))
+* **api:** api update ([#29](https://github.com/woodside-labs/fiatwebservices-node/issues/29)) ([d734206](https://github.com/woodside-labs/fiatwebservices-node/commit/d73420671b1ea4b63b56a18261e3f3e042619170))
+
+
+### Chores
+
+* **internal:** version bump ([#22](https://github.com/woodside-labs/fiatwebservices-node/issues/22)) ([b5d5aa6](https://github.com/woodside-labs/fiatwebservices-node/commit/b5d5aa6a804e99d5f617ea025c014cc0581afdbc))
+* update SDK settings ([#21](https://github.com/woodside-labs/fiatwebservices-node/issues/21)) ([0e9723c](https://github.com/woodside-labs/fiatwebservices-node/commit/0e9723caeb180af7fd7d3a1a481fad0afea91eff))
+
 ## 0.1.0-alpha.5 (2025-03-10)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
