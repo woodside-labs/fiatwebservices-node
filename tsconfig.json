@@ -9,8 +9,8 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "fiatwebservices/*": ["src/*"],
-      "fiatwebservices": ["src/index.ts"]
+      "@fiatwebservices/sdk/*": ["src/*"],
+      "@fiatwebservices/sdk": ["src/index.ts"]
     },
     "noEmit": true,
 
