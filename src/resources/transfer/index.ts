@@ -4,4 +4,4 @@ export { ACH, type ACHCreateResponse, type ACHCreateParams } from './ach';
 export { Rtp, type RtpCreateResponse, type RtpCreateParams } from './rtp';
 export { Sepa, type SepaCreateResponse, type SepaCreateParams } from './sepa';
 export { Swift, type SwiftCreateResponse, type SwiftCreateParams } from './swift';
-export { Transfer, type TransferRetrieveResponse } from './transfer';
+export { Transfer } from './transfer';
