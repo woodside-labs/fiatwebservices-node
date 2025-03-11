@@ -7,10 +7,10 @@ const client = new Fiatwebservices({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('top level methods', () => {
+describe('resource transfer', () => {
   // skipped: tests are disabled for the time being
-  test.skip('ping', async () => {
-    const responsePromise = client.ping();
+  test.skip('retrieve', async () => {
+    const responsePromise = client.transfer.retrieve('019545cd-c9d1-797d-b2e8-e704c3109311');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
