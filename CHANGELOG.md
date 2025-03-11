@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.12 (2025-03-11)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Features
+
+* **api:** reran-build ([#53](https://github.com/woodside-labs/fiatwebservices-node/issues/53)) ([b6c2a22](https://github.com/woodside-labs/fiatwebservices-node/commit/b6c2a227752fe2dea9081e515d204c589a27ede0))
+
 ## 0.1.0-alpha.11 (2025-03-10)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
