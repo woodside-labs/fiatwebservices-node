@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2025-03-11)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#59](https://github.com/woodside-labs/fiatwebservices-node/issues/59)) ([e15fb23](https://github.com/woodside-labs/fiatwebservices-node/commit/e15fb234bda8072b315801dd23c762f5ac0b7945))
+* **api:** manual updates ([#62](https://github.com/woodside-labs/fiatwebservices-node/issues/62)) ([f3e3ee3](https://github.com/woodside-labs/fiatwebservices-node/commit/f3e3ee31cb54be335d93cbcfedd41b204933c54f))
+* **client:** accept RFC6838 JSON content types ([#61](https://github.com/woodside-labs/fiatwebservices-node/issues/61)) ([34c4e63](https://github.com/woodside-labs/fiatwebservices-node/commit/34c4e63921416d8b60de1af600fee858a9184bd1))
+
 ## 0.1.0-alpha.13 (2025-03-11)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)

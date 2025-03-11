@@ -27,9 +27,9 @@ const client = new Fiatwebservices({
 });
 
 async function main() {
-  const response = await client.ping();
+  const sepa = await client.transfer.sepa.create({ message: '<xml/>' });
 
-  console.log(response.message);
+  console.log(sepa.id);
 }
 
 main();
@@ -48,7 +48,8 @@ const client = new Fiatwebservices({
 });
 
 async function main() {
-  const response: Fiatwebservices.PingResponse = await client.ping();
+  const params: Fiatwebservices.Transfer.SepaCreateParams = { message: '<xml/>' };
+  const sepa: Fiatwebservices.Transfer.SepaCreateResponse = await client.transfer.sepa.create(params);
 }
 
 main();
@@ -65,7 +66,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const response = await client.ping().catch(async (err) => {
+  const sepa = await client.transfer.sepa.create({ message: '<xml/>' }).catch(async (err) => {
     if (err instanceof Fiatwebservices.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -108,7 +109,7 @@ const client = new Fiatwebservices({
 });
 
 // Or, configure per-request:
-await client.ping({
+await client.transfer.sepa.create({ message: '<xml/>' }, {
   maxRetries: 5,
 });
 ```
@@ -125,7 +126,7 @@ const client = new Fiatwebservices({
 });
 
 // Override per-request:
-await client.ping({
+await client.transfer.sepa.create({ message: '<xml/>' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -148,13 +149,13 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Fiatwebservices();
 
-const response = await client.ping().asResponse();
+const response = await client.transfer.sepa.create({ message: '<xml/>' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.ping().withResponse();
+const { data: sepa, response: raw } = await client.transfer.sepa.create({ message: '<xml/>' }).withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(response.message);
+console.log(sepa.id);
 ```
 
 ### Logging
