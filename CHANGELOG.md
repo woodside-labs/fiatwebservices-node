@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2025-03-15)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Features
+
+* **api:** api update ([#73](https://github.com/woodside-labs/fiatwebservices-node/issues/73)) ([e018469](https://github.com/woodside-labs/fiatwebservices-node/commit/e01846978b498ea17b60cdfdeb7ca33236ccd9a3))
+* **api:** api update ([#75](https://github.com/woodside-labs/fiatwebservices-node/issues/75)) ([7599521](https://github.com/woodside-labs/fiatwebservices-node/commit/7599521d85534d19138a5303222674645189b391))
+* **api:** api update ([#76](https://github.com/woodside-labs/fiatwebservices-node/issues/76)) ([2378d49](https://github.com/woodside-labs/fiatwebservices-node/commit/2378d4981c88f186dad4039ee058dbe59f5ee848))
+* **api:** api update ([#77](https://github.com/woodside-labs/fiatwebservices-node/issues/77)) ([a194121](https://github.com/woodside-labs/fiatwebservices-node/commit/a19412132983e51d2e091c8846eb093da90581bc))
+* **api:** api update ([#78](https://github.com/woodside-labs/fiatwebservices-node/issues/78)) ([38f97c6](https://github.com/woodside-labs/fiatwebservices-node/commit/38f97c6354118828574124065f4fdaf61d763b15))
+* **api:** api update ([#79](https://github.com/woodside-labs/fiatwebservices-node/issues/79)) ([d6a2d72](https://github.com/woodside-labs/fiatwebservices-node/commit/d6a2d72f54ae77cb1312f1ee67f995d962047a59))
+* **api:** api update ([#80](https://github.com/woodside-labs/fiatwebservices-node/issues/80)) ([4450cd4](https://github.com/woodside-labs/fiatwebservices-node/commit/4450cd49a38012090960abd494f8abaf2b737aa0))
+* **api:** api update ([#81](https://github.com/woodside-labs/fiatwebservices-node/issues/81)) ([e739686](https://github.com/woodside-labs/fiatwebservices-node/commit/e739686770125d577751ce30398c8d96806d55b3))
+* **api:** api update ([#82](https://github.com/woodside-labs/fiatwebservices-node/issues/82)) ([fa8e958](https://github.com/woodside-labs/fiatwebservices-node/commit/fa8e958cae56e0414a9d26aa73b8b3403fa1fa1b))
+* **api:** api update ([#83](https://github.com/woodside-labs/fiatwebservices-node/issues/83)) ([823b31f](https://github.com/woodside-labs/fiatwebservices-node/commit/823b31fcc9814a504abb1f36e428eb5539609859))
+* **api:** api update ([#84](https://github.com/woodside-labs/fiatwebservices-node/issues/84)) ([3e0fa8f](https://github.com/woodside-labs/fiatwebservices-node/commit/3e0fa8fec5bbf87424773e5a17460e2102c4528f))
+
+
+### Bug Fixes
+
+* **exports:** ensure resource imports don't require /index ([#86](https://github.com/woodside-labs/fiatwebservices-node/issues/86)) ([983e5b2](https://github.com/woodside-labs/fiatwebservices-node/commit/983e5b2fdff9a3f475e160fedd3efb334a9aa102))
+* **internal:** add mts file + crypto shim types ([#87](https://github.com/woodside-labs/fiatwebservices-node/issues/87)) ([72ec90a](https://github.com/woodside-labs/fiatwebservices-node/commit/72ec90a026a529fb6b9a957bac09edac9c14e4e5))
+
+
+### Chores
+
+* **internal:** remove extra empty newlines ([#85](https://github.com/woodside-labs/fiatwebservices-node/issues/85)) ([d1afab7](https://github.com/woodside-labs/fiatwebservices-node/commit/d1afab7448af46593c85b0781f7e325b3c894338))
+
 ## 0.1.0-alpha.16 (2025-03-11)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.16](https://github.com/woodside-labs/fiatwebservices-node/compare/v0.1.0-alpha.14...v0.1.0-alpha.16)
