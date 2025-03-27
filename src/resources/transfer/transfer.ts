@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
+import { APIResource } from '../../core/resource';
 import * as ACHAPI from './ach';
 import { ACH, ACHCreateParams, ACHCreateResponse } from './ach';
 import * as RtpAPI from './rtp';
@@ -9,7 +9,7 @@ import * as SepaAPI from './sepa';
 import { Sepa, SepaCreateParams, SepaCreateResponse } from './sepa';
 import * as SwiftAPI from './swift';
 import { Swift, SwiftCreateParams, SwiftCreateResponse } from './swift';
-import { APIPromise } from '../../api-promise';
+import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 

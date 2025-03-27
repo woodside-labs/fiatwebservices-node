@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'fiatwebservices/api-promise';
+import { APIPromise } from 'fiatwebservices/core/api-promise';
 
 import util from 'node:util';
 import Fiatwebservices from 'fiatwebservices';
