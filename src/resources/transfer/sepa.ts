@@ -5,6 +5,14 @@ import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 
 export class Sepa extends APIResource {
+  /**
+   * @example
+   * ```ts
+   * const sepa = await client.transfer.sepa.create({
+   *   message: '<xml/>',
+   * });
+   * ```
+   */
   create(body: SepaCreateParams, options?: RequestOptions): APIPromise<SepaCreateResponse> {
     return this._client.post('/payment-transfers/sepa', { body, ...options });
   }

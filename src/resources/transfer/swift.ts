@@ -5,6 +5,14 @@ import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 
 export class Swift extends APIResource {
+  /**
+   * @example
+   * ```ts
+   * const swift = await client.transfer.swift.create({
+   *   message: '<xml/>',
+   * });
+   * ```
+   */
   create(body: SwiftCreateParams, options?: RequestOptions): APIPromise<SwiftCreateResponse> {
     return this._client.post('/payment-transfers/swift', { body, ...options });
   }

@@ -19,6 +19,14 @@ export class Transfer extends APIResource {
   swift: SwiftAPI.Swift = new SwiftAPI.Swift(this._client);
   ach: ACHAPI.ACH = new ACHAPI.ACH(this._client);
 
+  /**
+   * @example
+   * ```ts
+   * const transfer = await client.transfer.retrieve(
+   *   '019545cd-c9d1-797d-b2e8-e704c3109311',
+   * );
+   * ```
+   */
   retrieve(id: string, options?: RequestOptions): APIPromise<TransferRetrieveResponse> {
     return this._client.get(path`/payment-transfers/${id}`, options);
   }

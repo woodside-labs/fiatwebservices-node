@@ -5,6 +5,14 @@ import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 
 export class Rtp extends APIResource {
+  /**
+   * @example
+   * ```ts
+   * const rtp = await client.transfer.rtp.create({
+   *   message: '<xml/>',
+   * });
+   * ```
+   */
   create(body: RtpCreateParams, options?: RequestOptions): APIPromise<RtpCreateResponse> {
     return this._client.post('/payment-transfers/rtp', { body, ...options });
   }
