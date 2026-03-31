@@ -2,7 +2,7 @@
 
 import type { Fiatwebservices } from '../client';
 
-export class APIResource {
+export abstract class APIResource {
   protected _client: Fiatwebservices;
 
   constructor(client: Fiatwebservices) {

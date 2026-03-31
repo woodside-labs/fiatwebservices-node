@@ -1,6 +1,6 @@
 # Fiatwebservices TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/fiatwebservices.svg)](https://npmjs.org/package/fiatwebservices) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/fiatwebservices)
+[![NPM version](<https://img.shields.io/npm/v/fiatwebservices.svg?label=npm%20(stable)>)](https://npmjs.org/package/fiatwebservices) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/fiatwebservices)
 
 This library provides convenient access to the Fiatwebservices REST API from server-side TypeScript or JavaScript.
 
@@ -26,13 +26,9 @@ const client = new Fiatwebservices({
   apiKey: process.env['FWS_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const sepa = await client.transfer.sepa.create({ message: '<xml/>' });
+const sepa = await client.transfer.sepa.create({ message: '<xml/>' });
 
-  console.log(sepa.id);
-}
-
-main();
+console.log(sepa.id);
 ```
 
 ### Request & Response types
@@ -47,12 +43,8 @@ const client = new Fiatwebservices({
   apiKey: process.env['FWS_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const params: Fiatwebservices.Transfer.SepaCreateParams = { message: '<xml/>' };
-  const sepa: Fiatwebservices.Transfer.SepaCreateResponse = await client.transfer.sepa.create(params);
-}
-
-main();
+const params: Fiatwebservices.Transfer.SepaCreateParams = { message: '<xml/>' };
+const sepa: Fiatwebservices.Transfer.SepaCreateResponse = await client.transfer.sepa.create(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -65,19 +57,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const sepa = await client.transfer.sepa.create({ message: '<xml/>' }).catch(async (err) => {
-    if (err instanceof Fiatwebservices.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const sepa = await client.transfer.sepa.create({ message: '<xml/>' }).catch(async (err) => {
+  if (err instanceof Fiatwebservices.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
@@ -153,7 +141,9 @@ const response = await client.transfer.sepa.create({ message: '<xml/>' }).asResp
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: sepa, response: raw } = await client.transfer.sepa.create({ message: '<xml/>' }).withResponse();
+const { data: sepa, response: raw } = await client.transfer.sepa
+  .create({ message: '<xml/>' })
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(sepa.id);
 ```
@@ -235,9 +225,8 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.foo.create({
-  foo: 'my_param',
-  bar: 12,
+client.transfer.sepa.create({
+  // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
 });
