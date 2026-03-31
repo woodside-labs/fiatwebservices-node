@@ -8,7 +8,7 @@ const client = new Fiatwebservices({
 });
 
 describe('resource transfer', () => {
-  // skipped: tests are disabled for the time being
+  // Mock server tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.transfer.retrieve('019545cd-c9d1-797d-b2e8-e704c3109311');
     const rawResponse = await responsePromise.asResponse();

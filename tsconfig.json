@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "fiatwebservices/*": ["src/*"],
-      "fiatwebservices": ["src/index.ts"]
+      "fiatwebservices/*": ["./src/*"],
+      "fiatwebservices": ["./src/index.ts"]
     },
     "noEmit": true,
 
