@@ -8,7 +8,7 @@ const client = new Fiatwebservices({
 });
 
 describe('resource swift', () => {
-  // skipped: tests are disabled for the time being
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.transfer.swift.create({ message: '<xml/>' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource swift', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.transfer.swift.create({ message: '<xml/>' });
   });

@@ -8,7 +8,7 @@ const client = new Fiatwebservices({
 });
 
 describe('top level methods', () => {
-  // skipped: tests are disabled for the time being
+  // Mock server tests are disabled
   test.skip('ping', async () => {
     const responsePromise = client.ping();
     const rawResponse = await responsePromise.asResponse();

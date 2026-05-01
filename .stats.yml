@@ -1,2 +1,4 @@
-configured_endpoints: 5
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/woodside-labs%2Ffiatwebservices-a8bfd8817bbce540198c6ddbab84c910b50b4c05efdc26519eb56536da9b7347.yml
+configured_endpoints: 6
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/woodside-labs/fiatwebservices-fbe7f088c3a71658e840980142d28e6b0e1918b6bdb552b5ebac7d5b324b91c9.yml
+openapi_spec_hash: a3cb058e93d49689d50b036a9e8ebb54
+config_hash: 235d507504c8a1dc1e77946cb9349ef8

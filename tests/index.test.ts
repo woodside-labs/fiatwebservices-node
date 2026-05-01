@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'fiatwebservices/api-promise';
+import { APIPromise } from 'fiatwebservices/core/api-promise';
 
 import util from 'node:util';
 import Fiatwebservices from 'fiatwebservices';
@@ -26,13 +26,13 @@ describe('instantiate client', () => {
       apiKey: 'My API Key',
     });
 
-    test('they are used in the request', () => {
-      const { req } = client.buildRequest({ path: '/foo', method: 'post' });
+    test('they are used in the request', async () => {
+      const { req } = await client.buildRequest({ path: '/foo', method: 'post' });
       expect(req.headers.get('x-my-default-header')).toEqual('2');
     });
 
-    test('can ignore `undefined` and leave the default', () => {
-      const { req } = client.buildRequest({
+    test('can ignore `undefined` and leave the default', async () => {
+      const { req } = await client.buildRequest({
         path: '/foo',
         method: 'post',
         headers: { 'X-My-Default-Header': undefined },
@@ -40,8 +40,8 @@ describe('instantiate client', () => {
       expect(req.headers.get('x-my-default-header')).toEqual('2');
     });
 
-    test('can be removed with `null`', () => {
-      const { req } = client.buildRequest({
+    test('can be removed with `null`', async () => {
+      const { req } = await client.buildRequest({
         path: '/foo',
         method: 'post',
         headers: { 'X-My-Default-Header': null },
@@ -87,7 +87,11 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Fiatwebservices({ logger: logger, logLevel: 'debug', apiKey: 'My API Key' });
+      const client = new Fiatwebservices({
+        logger: logger,
+        logLevel: 'debug',
+        apiKey: 'My API Key',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).toHaveBeenCalled();
@@ -107,7 +111,11 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Fiatwebservices({ logger: logger, logLevel: 'info', apiKey: 'My API Key' });
+      const client = new Fiatwebservices({
+        logger: logger,
+        logLevel: 'info',
+        apiKey: 'My API Key',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -157,7 +165,11 @@ describe('instantiate client', () => {
       };
 
       process.env['FIATWEBSERVICES_LOG'] = 'debug';
-      const client = new Fiatwebservices({ logger: logger, logLevel: 'off', apiKey: 'My API Key' });
+      const client = new Fiatwebservices({
+        logger: logger,
+        logLevel: 'off',
+        apiKey: 'My API Key',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -173,7 +185,11 @@ describe('instantiate client', () => {
       };
 
       process.env['FIATWEBSERVICES_LOG'] = 'not a log level';
-      const client = new Fiatwebservices({ logger: logger, logLevel: 'debug', apiKey: 'My API Key' });
+      const client = new Fiatwebservices({
+        logger: logger,
+        logLevel: 'debug',
+        apiKey: 'My API Key',
+      });
       expect(client.logLevel).toBe('debug');
       expect(warnMock).not.toHaveBeenCalled();
     });
@@ -320,6 +336,28 @@ describe('instantiate client', () => {
       const client = new Fiatwebservices({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://api.fiatwebservices.com');
     });
+
+    test('in request options', () => {
+      const client = new Fiatwebservices({ apiKey: 'My API Key' });
+      expect(client.buildURL('/foo', null, 'http://localhost:5000/option')).toEqual(
+        'http://localhost:5000/option/foo',
+      );
+    });
+
+    test('in request options overridden by client options', () => {
+      const client = new Fiatwebservices({ apiKey: 'My API Key', baseURL: 'http://localhost:5000/client' });
+      expect(client.buildURL('/foo', null, 'http://localhost:5000/option')).toEqual(
+        'http://localhost:5000/client/foo',
+      );
+    });
+
+    test('in request options overridden by env variable', () => {
+      process.env['FIATWEBSERVICES_BASE_URL'] = 'http://localhost:5000/env';
+      const client = new Fiatwebservices({ apiKey: 'My API Key' });
+      expect(client.buildURL('/foo', null, 'http://localhost:5000/option')).toEqual(
+        'http://localhost:5000/env/foo',
+      );
+    });
   });
 
   test('maxRetries option is correctly set', () => {
@@ -329,6 +367,82 @@ describe('instantiate client', () => {
     // default
     const client2 = new Fiatwebservices({ apiKey: 'My API Key' });
     expect(client2.maxRetries).toEqual(2);
+  });
+
+  describe('withOptions', () => {
+    test('creates a new client with overridden options', async () => {
+      const client = new Fiatwebservices({
+        baseURL: 'http://localhost:5000/',
+        maxRetries: 3,
+        apiKey: 'My API Key',
+      });
+
+      const newClient = client.withOptions({
+        maxRetries: 5,
+        baseURL: 'http://localhost:5001/',
+      });
+
+      // Verify the new client has updated options
+      expect(newClient.maxRetries).toEqual(5);
+      expect(newClient.baseURL).toEqual('http://localhost:5001/');
+
+      // Verify the original client is unchanged
+      expect(client.maxRetries).toEqual(3);
+      expect(client.baseURL).toEqual('http://localhost:5000/');
+
+      // Verify it's a different instance
+      expect(newClient).not.toBe(client);
+      expect(newClient.constructor).toBe(client.constructor);
+    });
+
+    test('inherits options from the parent client', async () => {
+      const client = new Fiatwebservices({
+        baseURL: 'http://localhost:5000/',
+        defaultHeaders: { 'X-Test-Header': 'test-value' },
+        defaultQuery: { 'test-param': 'test-value' },
+        apiKey: 'My API Key',
+      });
+
+      const newClient = client.withOptions({
+        baseURL: 'http://localhost:5001/',
+      });
+
+      // Test inherited options remain the same
+      expect(newClient.buildURL('/foo', null)).toEqual('http://localhost:5001/foo?test-param=test-value');
+
+      const { req } = await newClient.buildRequest({ path: '/foo', method: 'get' });
+      expect(req.headers.get('x-test-header')).toEqual('test-value');
+    });
+
+    test('respects runtime property changes when creating new client', () => {
+      const client = new Fiatwebservices({
+        baseURL: 'http://localhost:5000/',
+        timeout: 1000,
+        apiKey: 'My API Key',
+      });
+
+      // Modify the client properties directly after creation
+      client.baseURL = 'http://localhost:6000/';
+      client.timeout = 2000;
+
+      // Create a new client with withOptions
+      const newClient = client.withOptions({
+        maxRetries: 10,
+      });
+
+      // Verify the new client uses the updated properties, not the original ones
+      expect(newClient.baseURL).toEqual('http://localhost:6000/');
+      expect(newClient.timeout).toEqual(2000);
+      expect(newClient.maxRetries).toEqual(10);
+
+      // Original client should still have its modified properties
+      expect(client.baseURL).toEqual('http://localhost:6000/');
+      expect(client.timeout).toEqual(2000);
+      expect(client.maxRetries).not.toEqual(10);
+
+      // Verify URL building uses the updated baseURL
+      expect(newClient.buildURL('/bar', null)).toEqual('http://localhost:6000/bar');
+    });
   });
 
   test('with environment variable arguments', () => {
@@ -350,8 +464,8 @@ describe('request building', () => {
   const client = new Fiatwebservices({ apiKey: 'My API Key' });
 
   describe('custom headers', () => {
-    test('handles undefined', () => {
-      const { req } = client.buildRequest({
+    test('handles undefined', async () => {
+      const { req } = await client.buildRequest({
         path: '/foo',
         method: 'post',
         body: { value: 'hello' },
@@ -386,8 +500,8 @@ describe('default encoder', () => {
     }
   }
   for (const jsonValue of [{}, [], { __proto__: null }, new Serializable(), new Collection(['item'])]) {
-    test(`serializes ${util.inspect(jsonValue)} as json`, () => {
-      const { req } = client.buildRequest({
+    test(`serializes ${util.inspect(jsonValue)} as json`, async () => {
+      const { req } = await client.buildRequest({
         path: '/foo',
         method: 'post',
         body: jsonValue,
@@ -410,7 +524,7 @@ describe('default encoder', () => {
     asyncIterable,
   ]) {
     test(`converts ${util.inspect(streamValue)} to ReadableStream`, async () => {
-      const { req } = client.buildRequest({
+      const { req } = await client.buildRequest({
         path: '/foo',
         method: 'post',
         body: streamValue,
@@ -423,7 +537,7 @@ describe('default encoder', () => {
   }
 
   test(`can set content-type for ReadableStream`, async () => {
-    const { req } = client.buildRequest({
+    const { req } = await client.buildRequest({
       path: '/foo',
       method: 'post',
       body: new Response('a\nb\nc\n').body,
@@ -451,7 +565,11 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Fiatwebservices({ apiKey: 'My API Key', timeout: 10, fetch: testFetch });
+    const client = new Fiatwebservices({
+      apiKey: 'My API Key',
+      timeout: 10,
+      fetch: testFetch,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -481,7 +599,11 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Fiatwebservices({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
+    const client = new Fiatwebservices({
+      apiKey: 'My API Key',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
 
@@ -505,7 +627,11 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Fiatwebservices({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
+    const client = new Fiatwebservices({
+      apiKey: 'My API Key',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(
       await client.request({
@@ -567,7 +693,11 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Fiatwebservices({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
+    const client = new Fiatwebservices({
+      apiKey: 'My API Key',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(
       await client.request({

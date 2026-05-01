@@ -1,10 +1,18 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { APIPromise } from '../../api-promise';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 
 export class ACH extends APIResource {
+  /**
+   * @example
+   * ```ts
+   * const ach = await client.transfer.ach.create({
+   *   message: '<xml/>',
+   * });
+   * ```
+   */
   create(body: ACHCreateParams, options?: RequestOptions): APIPromise<ACHCreateResponse> {
     return this._client.post('/payment-transfers/ach', { body, ...options });
   }

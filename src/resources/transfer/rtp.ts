@@ -1,10 +1,18 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { APIPromise } from '../../api-promise';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 
 export class Rtp extends APIResource {
+  /**
+   * @example
+   * ```ts
+   * const rtp = await client.transfer.rtp.create({
+   *   message: '<xml/>',
+   * });
+   * ```
+   */
   create(body: RtpCreateParams, options?: RequestOptions): APIPromise<RtpCreateResponse> {
     return this._client.post('/payment-transfers/rtp', { body, ...options });
   }
